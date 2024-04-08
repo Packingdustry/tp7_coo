@@ -4,5 +4,7 @@ public interface Appareil {
 
     public void eteindre();
 
+    public boolean isAllume();
+
     public String toString();
 }

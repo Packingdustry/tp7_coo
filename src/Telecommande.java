@@ -1,34 +1,42 @@
 import java.util.*;
 
 public class Telecommande {
-    private List<Lampe> lampes;
+    private List<Appareil> appareils;
 
     public Telecommande() {
-        lampes = new ArrayList<>();
+        appareils = new ArrayList<>();
     }
 
-    public void ajouterLampe(Lampe lampe) {
-        lampes.add(lampe);
+    public void ajouterAppareil(Appareil appareil) {
+        appareils.add(appareil);
     }
 
-    public void allumerLampe(int indiceLampe) {
-        lampes.get(indiceLampe).allumer();
+    public void allumerAppareil(int indiceAppareil) {
+        appareils.get(indiceAppareil).allumer();
     }
 
-    public void eteindreLampe(int indiceLampe) {
-        lampes.get(indiceLampe).eteindre();
+    public void eteindreAppareil(int indiceAppareil) {
+        appareils.get(indiceAppareil).eteindre();
     }
 
     public void activerTout() {
-        for (Lampe lampe : lampes) {
-            lampe.allumer();
+        for (Appareil appareil : appareils) {
+            appareil.allumer();
+        }
+    }
+
+    public void appuyer (int i) {
+        if (appareils.get(i).isAllume()) {
+            this.allumerAppareil(i);
+        } else {
+            this.eteindreAppareil(i);
         }
     }
 
     public String toString(){
         String res = "";
-        for (int i = 0 ; i < lampes.size(); i++){
-            res += "lampe numéro"+i+" "+lampes.get(i).toString()+"\n";
+        for (int i = 0; i < appareils.size(); i++){
+            res += "lampe numéro"+i+" "+ appareils.get(i).toString()+"\n";
         }
         return res;
     }

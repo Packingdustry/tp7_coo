@@ -24,7 +24,10 @@ class Hifi implements Appareil {
 	 */
 	public void eteindre() {
 		this.son = 0;
+	}
 
+	public boolean isAllume() {
+		return this.son > 0;
 	}
 
 	/**
